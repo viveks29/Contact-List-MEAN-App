@@ -1,0 +1,42 @@
+<div>
+<div class="container mt-3">
+    <h2 class="page-header">Add Contact</h2>
+    <form (submit)="addContact()">
+        <div>
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="first_name" name="first_name" class="form-control" required>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="last_name" name="last_name" class="form-control" required>
+        </div>
+        <div>
+            <label>Phone No.</label>
+            <input type="text" [(ngModel)]="phone" name="phone" class="form-control" required>
+        </div>
+        <div class="mt-2">
+            <button type="submit" value="Add" class="btn btn btn-success">Add Contact</button>
+            <br><br>    
+        </div>    
+
+    </form>
+</div>
+<hr>
+<div class="container">   
+    <h2 class="page-header">All Contacts</h2>
+    <div *ngFor="let contact of contacts" class="row mt-1 mb-1">
+        <div class="col-md-3">
+            {{contact.first_name}}
+        </div>
+        <div class="col-md-3">
+            {{contact.last_name}}
+        </div>
+        <div class="col-md-3">
+            {{contact.phone}}
+        </div>
+        <div class="col-md-3">
+            <input type="button" (click)='deleteContact(contact._id)' value="Delete" class="btn btn-danger">         
+        </div>        
+    </div>
+</div>
+</div>
